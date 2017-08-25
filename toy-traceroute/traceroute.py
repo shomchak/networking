@@ -49,7 +49,7 @@ def main():
     ip = sys.argv[1]
     sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
     ttl = 1
-    inp = make_icmp_packet(8, 0) + b'\x00' * 100
+    inp = make_icmp_packet(8, 0)
     while True:
         sock.setsockopt(socket.SOL_IP, socket.IP_TTL, ttl)
         sock.sendto(inp, (ip, 0))
